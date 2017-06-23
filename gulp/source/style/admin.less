@@ -1,0 +1,72 @@
+@import url('basic.less');
+html,
+.admin {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+header {
+    // background:
+}
+
+.admin {
+    background-image: linear-gradient(0deg, #9f73c3 0, #6875be);
+    background-image: -webkit-linear-gradient(0deg, #9f73c3 0, #6875be);
+    padding: 0;
+    * {
+        font-size: 14px;
+    }
+    .slide_bar_menu {
+        height: 100%;
+        // margin-left: -15px;
+        background: fadeout(@blackColor, 50%);
+        // padding: 0 0;
+        a {
+            display: block;
+            padding: 15px 0;
+            text-indent: 2em;
+            color: white;
+            margin: 0 -15px;
+            &:hover {
+                background: fadeout(@blackColor, 60%);
+            }
+        }
+    }
+    .main {
+        height: 100%;
+        overflow-y: scroll;
+        .searchBox {
+            .clear;
+            .search {
+                float: left;
+                text-align: right;
+                padding: 15px;
+                input[type=text] {
+                    border: 1px solid white;
+                    background: transparent;
+                    vertical-align: middle;
+                    height: 24px;
+                    padding: 0 5px;
+                }
+                input[type=submit] {
+                    color: lighten(@blackColor, 20%);
+                    font-size: 12px;
+                    vertical-align: middle;
+                    border: 1px solid white;
+                    background: white;
+                    padding: 2px 5px;
+                }
+            }
+        }
+        h3 {
+            text-align: center;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: '微软雅黑';
+}
+html,
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover,
+a:active,
+a:link,
+a:visited {
+  outline: none;
+}
+input:focus {
+  outline: none;
+}
+.clear:before {
+  display: table;
+  content: "";
+  clear: both;
+}
+.clear:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+table tr:first-child {
+  background: rgba(0, 0, 0, 0.4);
+}
+table tr:first-child th {
+  color: white;
+  text-align: center;
+}
+table tr:first-child:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+table tr td {
+  text-align: center;
+}
+table tr td a {
+  display: block;
+  color: #333333;
+}
+table tr:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+table tr:hover * {
+  color: white;
+}
+* {
+  font-size: 1rem;
+}
+html,
+.admin {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.admin {
+  background-image: linear-gradient(0deg, #9f73c3 0, #6875be);
+  background-image: -webkit-linear-gradient(0deg, #9f73c3 0, #6875be);
+  padding: 0;
+}
+.admin * {
+  font-size: 14px;
+}
+.admin .slide_bar_menu {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.admin .slide_bar_menu a {
+  display: block;
+  padding: 15px 0;
+  text-indent: 2em;
+  color: white;
+  margin: 0 -15px;
+}
+.admin .slide_bar_menu a:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.admin .main {
+  height: 100%;
+  overflow-y: scroll;
+}
+.admin .main .searchBox:before {
+  display: table;
+  content: "";
+  clear: both;
+}
+.admin .main .searchBox:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.admin .main .searchBox .search {
+  float: left;
+  text-align: right;
+  padding: 15px;
+}
+.admin .main .searchBox .search input[type=text] {
+  border: 1px solid white;
+  background: transparent;
+  vertical-align: middle;
+  height: 24px;
+  padding: 0 5px;
+}
+.admin .main .searchBox .search input[type=submit] {
+  color: #333333;
+  font-size: 12px;
+  vertical-align: middle;
+  border: 1px solid white;
+  background: white;
+  padding: 2px 5px;
+}
+.admin .main h3 {
+  text-align: center;
+  color: white;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>改变内容：</p>
+	<div id="example"></div>
+	<br>
+	<h2 onclick="push(1)">pushid1</h2>
+	<h2 onclick="push(2)">pushid2</h2>
+	<h2 onclick="push(3)">pushid3</h2>
+	<h2 onclick="push(4)">pushid4</h2>
+	<h2 onclick="replace(8)">replaceid8</h2>
+	<script type="text/javascript">
+	var html;
+	// console.log('pushState'  in window.history)
+	console.log(history.state)
+	var data =[1,2,3,4,5];
+	if(!history.state){
+		html = data[0];
+		document.getElementById('example').innerHTML = html;
+	}else{
+		document.getElementById('example').innerHTML = data[history.state.id];
+	}
+	window.onpopstate= function(){
+		console.log(history.state)
+		document.getElementById('example').innerHTML = data[history.state.id];
+	}
+	window.onhashchange = function(){
+		console.log('hashchange')
+	}
+	function replace(id){
+		history.replaceState({id: id}, '', 'index.html?id='+id)
+	}
+	function push(id){
+		document.getElementById('example').innerHTML = data[id];
+		var stateObj = { foo: "bar" };
+		history.pushState({id: id}, '', 'index.html?id='+id);
+	}
+	</script>
+
+	<p>
+		
+		pushState 和 replaceState都不会触发onpopstate事件，
+
+		只有在浏览器的前进和后退的时候才会触发onpopstate事件
+	</p>
+</body>
+</html>

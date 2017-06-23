@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.0.0",
+    "gulp-less": "^3.3.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "dependencies": {
+    "gulp-rename": "^1.2.2"
+  }
+}

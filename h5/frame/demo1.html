@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+    var ifr = document.createElement("iframe");
+    document.body.appendChild(ifr);
+    var ifrdoc = ifr.contentWindow.document;
+    var s = ifrdoc.innerHTML;  //进入可编辑模式前存好
+    console.log(s)
+    ifrdoc.designMode = "on";    //文档进入可编辑模式
+    ifrdoc.open();               //打开流
+    ifrdoc.write(s); 
+    ifrdoc.close();              //关闭流
+    ifrdoc.designMode ="off";    //文档进入非可编辑模式
+</script>
+</body>
+</html>

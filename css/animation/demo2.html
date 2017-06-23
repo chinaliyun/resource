@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 91px;
+			height: 71px;
+			background-image: url(../img/bird.png);
+			animation-name: bird-fly;
+			animation-duration: 400ms;
+			animation-timing-function: steps(1);
+			animation-iteration-count: infinite;
+		}
+		@keyframes bird-fly{
+			0% {
+				background-position: 0px 0px;
+			}
+			25% {
+				background-position: -91px 0px;
+			}
+			50% {
+				background-position: -182px 0;
+			}
+			75% {
+				background-position: -91px 0px;
+			}
+			100% {
+				background-position: 0px 0px;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

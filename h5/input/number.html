@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="" />
+</head>
+<body>
+	<form action=""  onsubmit="return false;" oninput="res.value = quant.value * price.value">
+			<input type="number" placeholder="quantity" id="quant" name="quant">x
+			<input type="number" placeholder="price" id="price" name="price">=
+			<output for="quant name" name="res"></output>
+	</form>
+	<pre>
+		oninput里面的名称对应的是input的name属性 
+		output里面的for对应的是input的ID属性
+	</pre>
+</body>
+</html>

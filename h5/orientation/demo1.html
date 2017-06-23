@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>陀螺仪</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <style type="text/css">
+    	#console{
+    		position: fixed;
+    		left: 0;
+    		top: 0;
+    		color: red;
+    	}
+    	#console p{
+
+    	}
+    </style>
+</head>
+<body>
+	<div id="console"></div>
+<script type="text/javascript">
+	function msg(msg){
+		var p = document.createElement('p');
+		p.innerHTML = msg;
+		document.getElementById('console').appendChild(p);
+	}
+	if(window.DeviceOrientationEvent){
+		msg(1);
+		// window.addEventListener("devicemotion", deviceMotionHandler);
+		widnow.addEventListener('deviceorientation',function(e){
+			msg(e)
+		},true)
+	}else{
+		msg(2);
+	}
+</script>
+</body>
+</html>

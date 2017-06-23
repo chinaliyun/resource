@@ -1,0 +1,24 @@
+{
+  "name": "1-optimize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "base.config.js",
+  "dependencies": {
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "gulp": "^3.9.1",
+    "gulp-webpack": "^1.5.0",
+    "html-webpack-plugin": "^2.28.0",
+    "jquery": "^3.2.1",
+    "webpack": "^2.5.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build:dev": "webpack --env.production=dev",
+    "build:dist": "webpack --env.production=dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

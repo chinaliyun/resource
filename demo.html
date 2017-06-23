@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		ul,li{
+			list-style: none;
+		}
+		body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.top{
+			text-align: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+			z-index: 100;
+		}
+		.bottom{
+			position: fixed;
+			top: 50px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		.wrapper{
+			width: 200px;
+			height: 50px;
+			border: 1px solid red;
+			position: relative;
+			margin: 0 auto;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+		.list{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 600px;
+			display: none;
+			padding-top: 50px;
+		}
+		li{
+			text-align: center;
+			background: gray;
+			color: white;
+			height: 50px;
+			line-height: 50px;
+		}
+		li+li{
+			border-top: 1px solid white;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="wrapper" onclick="showList(this)" >
+			<p>点击显示</p>
+			<ul class="list" onmouseleave="hideList(this)">
+				<li>menu1</li>
+				<li>menu2</li>
+				<li>menu3</li>
+			</ul>
+		</div>
+		<div class="wrapper"onmouseover="showList(this)">
+			<p>鼠标滑过</p>
+			<ul class="list" onmouseleave="hideList(this)">
+				<li>menu1</li>
+				<li>menu2</li>
+				<li>menu3</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom">
+		bottom
+	</div>
+	<script type="text/javascript">
+		function showList(ele){
+			ele.querySelector('.list').style.display='block';
+		}
+		function hideList(ele){
+			ele.style.display='none';
+		}
+	</script>
+</body>
+</html>

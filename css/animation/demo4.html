@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.active{
+			width: 100px;
+			height: 100px;
+			background: red;
+			transition: all 5s linear;
+		}
+	</style>
+</head>
+<body>
+	<div class="active"></div>
+	<script type="text/javascript">
+		var ele = document.querySelector('.active');
+		var tr = window.getComputedStyle(ele);
+		console.log(tr.transitionDuration)
+	</script>
+</body>
+</html>
