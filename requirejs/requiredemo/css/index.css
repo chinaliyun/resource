@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+}
+ul,li{
+	list-style: none;
+}
+li{
+	width: 300px;
+	height: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: gray;
+	border: 1px solid red;
+}
+li.fillx{
+	background-size: 100% auto;
+}
+li.filly{
+	background-size: auto 100%;
+}
