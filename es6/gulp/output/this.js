@@ -4,43 +4,54 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function add() {
+	console.log(this);
+	this.name = 'zhangsan';
+}
+add();
+
+var foo = function foo() {
+	return undefined;
+};
+var lisi = function lisi() {
+	var _this = this;
+
+	return function () {
+		return _this;
+	};
+};
+
+var person = {
+	name: 'zhangsan',
+	age: '13',
+	getName: function getName() {
+		return this.name;
+	},
+	getAge: function getAge() {
+		return undefined.age;
+	}
+};
+
 var Person = function () {
 	function Person() {
 		_classCallCheck(this, Person);
-
-		console.log(1);
 	}
 
 	_createClass(Person, [{
-		key: 'add',
-		value: function add() {
-			console.log('add');
+		key: 'getName',
+		value: function getName() {
+			console.log(this);
 		}
-	}], [{
-		key: 'foo',
-		value: function foo() {}
-		// foo = function(){}
-		// static name = 2;
-		// name =3
-
 	}]);
 
 	return Person;
 }();
 
-new Person();
-
-function Person() {
-	this.name = 'zhangsan';
-	this.getName = function () {
-		return this.name;
-	};
-}
-Person.prototype.getAge = function () {
-	return this.age;
-};
-Person.age = 14;
-
-console.log(Person);
-console.log(Person.age);
 var zhangsan = new Person();
+zhangsan.getName();
+
+var student = {
+	getName: function getName() {
+		console.log(this);
+	}
+};

@@ -16,18 +16,19 @@ var options = {
 		return this.age;
 	},
 	getSex: function getSex() {
-		return sex;
+		return undefined.sex;
 	},
 	getRealSex: function getRealSex() {
 		return options.sex;
 	}
 };
-
-// console.log(options.getName())
-// console.log(options.getAge())
-// console.log(options.getSex())
-// console.log(options.getRealSex())
-
+var add = function add() {
+	return undefined;
+};
+console.log(options.getName());
+console.log(options.getAge());
+console.log(options.getSex());
+console.log(options.getRealSex());
 
 var person = {
 	name: 'tom',
@@ -40,3 +41,8 @@ var person = {
 	}
 };
 console.log(person.getName()());
+
+/*
+
+箭头函数中没有this，指向undefined
+ */

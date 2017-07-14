@@ -12,14 +12,14 @@ let options = {
 	getAge: function(){
 		return this.age
 	},
-	getSex: ()=>sex,
+	getSex: ()=>this.sex,
 	getRealSex: ()=>options.sex
 };
-
-// console.log(options.getName())
-// console.log(options.getAge())
-// console.log(options.getSex())
-// console.log(options.getRealSex())
+var add = ()=>this;
+console.log(options.getName())
+console.log(options.getAge())
+console.log(options.getSex())
+console.log(options.getRealSex())
 
 
 const person = {
@@ -29,3 +29,8 @@ const person = {
     }
 }
 console.log(person.getName()())
+
+/*
+
+箭头函数中没有this，指向undefined
+ */
