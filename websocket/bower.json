@@ -1,0 +1,17 @@
+{
+  "name": "websocket demo",
+  "homepage": "https://github.com/chinaliyun/study",
+  "authors": [
+    "liyun <chinaliyun92@gmail.com>"
+  ],
+  "description": "websocket demo",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

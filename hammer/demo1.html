@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HammerJS</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		div{
+			width: 100%;
+			height: 200px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv"></div>
+	<script type="text/javascript" src="common/hammer.js"></script>
+	<!-- <script type="text/javascript" src="common/hammer-time.js"></script> -->
+	<script type="text/javascript">
+		window.onload = function(){
+			var hammer = new Hammer(document.body);
+			hammer.get('pinch').set({ enable: true });
+			document.body.addEventListener('touchstart',function(e){
+				e.preventDefault();
+			})
+			hammer.on('tap',function(ev){
+				document.title = 'tap'
+			})
+			/*hammer.on('panup',function(ev){
+				document.title = 'panup'
+			})
+			hammer.on('pandown',function(ev){
+				document.title = 'pandown'
+			})
+			hammer.on('panleft',function(ev){
+				document.title = 'panleft'
+			})
+			hammer.on('panright',function(ev){
+				document.title = 'panright'
+			})*/
+			hammer.on('press',function(ev){
+				document.title = 'press'
+			})
+			hammer.on('swipeup',function(ev){
+				document.title = 'swipeup'
+			})
+			hammer.on('swipeudown',function(ev){
+				document.title = 'swipeudown'
+			})
+			hammer.on('swipeleft',function(ev){
+				document.title = 'swipeleft'
+			})
+			hammer.on('swiperight',function(ev){
+				document.title = 'swiperight'
+			})
+			hammer.on('pinch',function(ev){
+				document.title = 'pinch'
+			})
+			/*hammer.on('pinchin',function(ev){
+				document.title = 'pinchin'
+			})
+			hammer.on('pinchout',function(ev){
+				document.title = 'pinchout'
+			})*/
+
+			
+		}
+	</script>
+</body>
+</html>

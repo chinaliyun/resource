@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HammerJS</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		div{
+			width: 100%;
+			height: 200px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv">内容222</div>
+	<p></p>
+	<!-- <script src="http://192.168.2.107:8081/target/target-script-min.js#anonymous"></script> -->
+	<script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+	<!-- <script type="text/javascript" src="common/hammer.js"></script> -->
+	<!-- <script type="text/javascript" src="common/hammer-time.js"></script> -->
+	<script type="text/javascript">
+		window.onload = function(){
+			document.getElementsByTagName('p')[0].innerHTML = navigator.userAgent;
+			var mc = new Hammer(document.body);
+			document.body.addEventListener('touchstart',function(e){
+				e.preventDefault();
+			})
+			mc.on('tap',function(e){
+				document.title = e.pointers
+				console.log(e.pointers)
+			})
+			console.log(00)
+
+			
+		}
+	</script>
+</body>
+</html>

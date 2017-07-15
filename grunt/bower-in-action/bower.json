@@ -1,0 +1,27 @@
+{
+  "name": "jquery-bootstrap-in-bower",
+  "description": "jqeury-bootstrap-in-bower",
+  "main": "",
+  "keywords": [
+    "jquery",
+    "bootstrap",
+    "bower"
+  ],
+  "authors": [
+    "liyun"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
