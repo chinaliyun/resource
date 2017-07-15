@@ -23,6 +23,14 @@ class App extends Component {
             })
         })
     }
+    addContact = (contact)=>{
+        ContactsAPI.create(contact).then((contact)=>{
+            console.log(this.state.contacts)
+            this.setState({
+                contacts: this.state.contacts.concat(contact),
+            })
+        })
+    }
     onNavigatorToCreate = ()=>{
         this.setState({
             screen: 'create'
@@ -38,7 +46,12 @@ class App extends Component {
                         onNavigator = {this.onNavigatorToCreate}
                     />
                 )}/>
-                <Route path='/create' component={CreateContact} />
+                <Route path='/create' render={({history})=>(
+                    <CreateContact onAddContact={(contact)=>{
+                        history.push('/')
+                        this.addContact(contact)
+                    }} />
+                )} />
             </div>
         )
     }

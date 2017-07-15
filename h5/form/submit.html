@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="" />
+</head>
+<body>
+	<form action="" method="GET" onsubmit="console.log(1);">
+		<input type="text" name="Name" placeholder="Name">
+		<input type="text" name="Email" placeholder="Email">
+		<button>submit button</button>
+		<input type="submit" value="submit input">
+	</form>
+	<pre>
+		原声的form提交有两种方式：
+
+		1. form内的任意一个不同按钮
+		2. form内的任意一个input[type=submit]
+
+		form的onsubmit事件，可以直接写入JS代码，也可以直接`return false；`,用来阻止form默认的提交事件
+
+		form默认的提交方式为GET，当触发上面两种任意一种类型的提交事件的时候，会跳转到action属性指定的地址中，并把form中所有带有name属性的表单字段放在url上传递过去
+	</pre>
+</body>
+</html>
