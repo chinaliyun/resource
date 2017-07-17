@@ -1,0 +1,6 @@
+.miniFooter{
+    font-size: 40px;
+}
+:global(.globalFoot){
+    font-size: 20px;
+}
