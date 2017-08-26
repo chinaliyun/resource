@@ -63,34 +63,30 @@
 	</style>
 </head>
 <body>
-	<div class="top">
-		<div class="wrapper" onclick="showList(this)" >
-			<p>点击显示</p>
-			<ul class="list" onmouseleave="hideList(this)">
-				<li>menu1</li>
-				<li>menu2</li>
-				<li>menu3</li>
-			</ul>
-		</div>
-		<div class="wrapper"onmouseover="showList(this)">
-			<p>鼠标滑过</p>
-			<ul class="list" onmouseleave="hideList(this)">
-				<li>menu1</li>
-				<li>menu2</li>
-				<li>menu3</li>
-			</ul>
-		</div>
-	</div>
-	<div class="bottom">
-		bottom
-	</div>
 	<script type="text/javascript">
-		function showList(ele){
-			ele.querySelector('.list').style.display='block';
+	/*console.log(1)
+		function test() {
+		    console.log(foo);
+		    console.log(bar);
+
+		    var foo = 'Hello';
+		    console.log(foo);
+		    var bar = function () {
+		        return 'world';
+		    }
+
+		    function foo() {
+		        return 'hello';
+		    }
 		}
-		function hideList(ele){
-			ele.style.display='none';
+
+		test();*/
+
+		function fn() {
+		    console.log('this is test.')
 		}
+		var timer =  setTimeout(fn, 1000);
+		console.log(timer);
 	</script>
 </body>
 </html>

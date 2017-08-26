@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style type="text/css">
+		.dialog{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0,0,0,0.8);
+		}
+		.content{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 300px;
+			background: white;
+			transform: translate(-50%, -50%);
+		}
+		.header{
+
+		}
+		.context{
+			height: 100px;
+			padding: 20px;
+		}
+		.btnGroup{
+			display: flex;		
+		}
+		button{
+			width: 50%;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="imgList">
+		<li class="" data-bg="/image/1.jpg" ></li>
+		<li class="" data-bg="/image/2.jpg" ></li>
+		<li class="" data-bg="/image/3.jpg" ></li>
+	</ul>
+	<button>dialog</button>
+	
+	<script type="text/javascript" data-main="./page/index.js" src="libs/require.js"></script>
+</body>
+</html>
