@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 普通的Form-POST -->
+	<form action="/process_post" method="post">
+		firstname: <input type="text" name="first_name">
+		lastname: <input type="text" name="last_name">
+		<input type="submit" value="submit">
+	</form>
+	<input type="button" class="ajax" value="ajax">
+	<!-- <img src="images/logo.png" alt=""> -->
+<!-- ajax方式GET -->
+<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.ajax').click(function(){
+			var reqData = {
+				"first_name": "zhang",
+				"last_name":"san"
+			};
+			$.ajax({
+				url: '/process_post?age=12',
+				type: 'GET',
+				data: reqData,
+				success: function(data){
+					console.log(data)
+				},
+				error: function(err){
+					console.log(err)
+				}
+			})
+		})
+		
+	})
+</script>
+</body>
+</html>

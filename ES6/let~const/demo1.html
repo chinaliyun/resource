@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var定义的变量会自动提升foo会被输出undefined是因为他输出的时候，就被定义变量存在，只是没有值，而 bar 是没有被定义过的变量 所以会报错
+		/*console.log(foo); // 输出undefined
+		console.log(bar); // 报错ReferenceError
+
+		var foo = 2;
+		let bar = 2;*/
+
+		// 代码块中出现let的时候，这个变量就会成为专属于这个块的变量，不会替代全局变量
+		// 如果代码块中的let tmp放在赋值后面，也会报错，因为他绑定到了这个代码块区域中，在这个变量没有被声明的时候，是不能被操作的
+		/*var tmp=123;
+		if(true){
+			let tmp;
+			tmp=456;
+		}
+		console.log(tmp);*/
+
+
+		// var tmp = new Date();
+
+		/*function f() {
+		  console.log(tmp);
+		  if (false) {
+		    var tmp = "hello world";
+		  }
+		}
+
+		f(); // undefined*/
+		/*console.log(tmp);
+		var tmp = '1';*/
+		/*if (true) {
+		  function f() {console.log(1)}
+		  f()
+		}
+		f();*/
+		'use strict';
+		function f() { console.log('I am outside!'); }
+		(function () {
+		  if (false) {
+		    // 重复声明一次函数f
+		    function f() { console.log('I am inside!'); }
+		  }
+
+		  f();
+		  console.log(window);
+		}());
+
+	</script>
+</body>
+</html>

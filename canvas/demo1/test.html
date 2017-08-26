@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function test(){
+			console.log(a)
+			var a = 1;
+			function inner(){
+				// a = 2
+				console.log(a)
+			}
+			inner()
+			outer();
+		}
+		function outer(){
+			console.log(a)
+		}
+		test()
+		var fn = null;
+function foo() {
+    var a = 2;
+    	var c ;
+    function innnerFoo() { 
+        console.log(c); // 在这里，试图访问函数bar中的c变量，会抛出错误
+        console.log(a);
+    }
+    innnerFoo();
+    fn = innnerFoo; // 将 innnerFoo的引用，赋值给全局变量中的fn
+}
+
+function bar() {
+    var c = 100;
+    fn(); // 此处的保留的innerFoo的引用
+}
+
+// foo();
+// bar();
+	</script>
+</body>
+</html>
