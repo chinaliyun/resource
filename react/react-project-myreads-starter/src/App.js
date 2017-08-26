@@ -30,14 +30,13 @@ class BooksApp extends React.Component {
   }
   render() {
     const { books, searchs } = this.state;
-    const allBooks = books.concat(searchs);
     return (
       <div className="app">
         <Route exact path="/" render={()=>(
             <ListBooks books={books} onUpdateShelf={this.updateShelf}/>
           )} />
         <Route exact path="/search" render={()=>(
-          <Search books={allBooks} onUpdateShelf={this.updateShelf}/>
+          <Search books={searchs} onUpdateShelf={this.updateShelf}/>
           )} />
       </div>
     )
