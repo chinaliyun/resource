@@ -1,0 +1,26 @@
+@import url('../../common/styles/icon.less');
+@import url('../../common/styles/mixin.less');
+
+.star{
+	display: flex;
+	.star-item{
+		width: 20px;
+		height: 20px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		margin-right: 10px;
+		&:last-child{
+			margin-right: 0;
+		}
+		&.on{
+			.bg-image('components/star/star24_on@2x.png')
+		}
+		&.off{
+			.bg-image('components/star/star24_off@2x.png')
+		}
+		&.half{
+			.bg-image('components/star/star24_half@2x.png')
+		}
+	}
+}
