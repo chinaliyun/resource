@@ -2,7 +2,7 @@
   <div class="goods" >
 		<div class="menu-wrapper" ref="menuWrapper">
 			<ul>
-				<li v-for="(item, index) in goods" :class="{'currentIndex': currentIndex===index}">
+				<li v-for="(item, index) in goods" class="menu-list-hook" :class="{'currentIndex': currentIndex===index}" @click="menuSelect(index, $event)">
 					<v-support-icon v-show="item.type>0" :type="item.type"></v-support-icon>
 					<span class="name">{{item.name}}</span>
 				</li>

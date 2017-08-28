@@ -28,7 +28,7 @@ export default {
 		_initScroll () {
 			/* eslint no-unused-vars: 0 */
 			this.menuScroll = new BScroll(this.$refs.menuWrapper, {
-				probeType: 3
+				click: true
 			})
 			this.contentScroll = new BScroll(this.$refs.contentWrapper, {
 				probeType: 3
@@ -45,22 +45,32 @@ export default {
 				height += parseInt(window.getComputedStyle(foodList[i]).height.slice(0, -2));
 				this.listHeight.push(height)
 			}
-			console.log(this.listHeight)
+		},
+		menuSelect (index, event) {
+			console.log(index)
+			let foodList = this.$refs.contentWrapper.querySelectorAll('.food-list-hook');
+			let ele = foodList[index];
+			this.contentScroll.scrollToElement(ele, 500)
+		}
+	},
+	watch: {
+		currentIndex: function (newValue, old) {
+			console.log(newValue, old)
+			let ele = this.$refs.menuWrapper.querySelectorAll('.menu-list-hook')[newValue];
+			console.log(ele)
+			this.menuScroll.scrollToElement(ele, 300);
 		}
 	},
 	computed: {
 		currentIndex () {
-			console.log('---')
-			for (let i = 0; i < this.listHeight.length; i++) {
-				console.log(i)
+			for (let i = 0; i < (this.listHeight.length - 1); i++) {
 				var height1 = this.listHeight[i];
 				var height2 = this.listHeight[i + 1];
-				console.log(this.listHeight.length, this.scrollY, height1, height2, i)
-				if (!height2 || this.scrollY > height1 && this.scrollY < height2) {
+				// console.log(this.scrollY, height1, height2)
+				if (this.scrollY >= height1 && this.scrollY < height2) {
 					return i;
 				}
 			}
-			console.log('<<<')
 			return 0;
 		}
 	},
