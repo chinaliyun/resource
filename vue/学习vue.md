@@ -217,9 +217,47 @@ seller:
 在使用props传递数据的时候，如果要拿到第二层以上的数据，必须要先判断上一层数据是否存在
 
 
+transform: rotate()
+-
+在针对一个`i`标签使用`transform: rotate()`样式没有效果，是因为i标签是一个内联元素，给元素加一个`display:blcok`样式即可
+
+派发自定义事件`$emit`
+-
+这个事件主要用于在**组件内部**触发事件，并不能跨组件触发，在组件内部的用法如下：
+```
+created () {
+    this.$on('add', (data) => {
+        console.log(data.name) // 'zhangsan'
+    })
+},
+methods: {
+    add () {
+        this.$emit('add', {name: 'zhangsan})
+    }
+}
+```
+如果需要通过自定义事件触发父组件中的事件，需要在组件中使用`v-on`绑定事件名，用法如下：
+```
+
+// 父组件 vue
+<custom-component @click="add(data)"></div>
+
+// 父组件 js
+methods: {
+    add (data) {
+        console.log(data.name) // 'zhangsan'
+    }
+}
 
 
+// 子组件 js
+methods: {
+    add () {
+        this.$emit('add', {name: 'zhangsan'})  // 派发事件
+    }
+}
 
+```
 
 
 

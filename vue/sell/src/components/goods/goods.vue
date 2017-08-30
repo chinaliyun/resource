@@ -1,5 +1,5 @@
 <template>
-  <div class="goods" >
+	<div class="goods" >
 		<div class="menu-wrapper" ref="menuWrapper">
 			<ul>
 				<li v-for="(item, index) in goods" class="menu-list-hook" :class="{'currentIndex': currentIndex===index}" @click="menuSelect(index, $event)">
@@ -9,27 +9,31 @@
 			</ul>
 		</div>
 		<div class="content-wrapper" ref="contentWrapper">
-      <ul>
-        <li v-for="item in goods" class="food-list-hook">
-            <h1>{{item.name}}</h1>
-            <ul>
-              <li v-if="item.foods" v-for="food in item.foods">
-                <img class="avatar" :src="food.image" alt="">
-                <div class="info">
-                  <p class="name">{{food.name}}</p>
-                  <p class="description">{{food.description}}</p>
-                  <p class="sellCount">
-                    <span>月售{{food.sellCount}}份&nbsp;&nbsp;</span>
-                    <span>好评率{{food.rating+'%'}}</span>
-                  </p>
-                  <p class="price">￥{{food.price}}</p>
-                </div>
-              </li>
-            </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+			<ul>
+				<li v-for="item in goods" class="food-list-hook">
+					<h1>{{item.name}}</h1>
+					<ul>
+						<li v-if="item.foods" v-for="food in item.foods">
+							<img class="avatar" :src="food.image" alt="">
+							<div class="info">
+								<p class="name">{{food.name}}</p>
+								<p class="description">{{food.description}}</p>
+								<p class="sellCount">
+									<span>月售{{food.sellCount}}份&nbsp;&nbsp;</span>
+									<span>好评率{{food.rating+'%'}}</span>
+								</p>
+								<p class="price">￥{{food.price}}</p>
+								<div class="cartcontrol-wrapper">
+									<v-cartcontrol :food="food" @cartAdd="test()"></v-cartcontrol>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<v-shopcart :food-list="selectFoodList" :minPrice="seller.minPrice" :peisong="seller.deliveryPrice"></v-shopcart>
+	</div>
 </template>
 
 <script>

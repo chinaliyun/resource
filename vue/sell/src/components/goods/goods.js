@@ -1,12 +1,15 @@
 import SupportIcon from 'components/support-icon/support-icon.vue'
 import BScroll from 'better-scroll'
+import Shopcart from 'components/shopcart/Shopcart.vue'
+import Cartcontrol from 'components/cartcontrol/cartcontrol.vue'
 
 export default {
 	data () {
 		return {
-			goods: '',
+			goods: [],
 			listHeight: [],
-			scrollY: 0
+			scrollY: 0,
+			seller: {}
 		}
 	},
 	created () {
@@ -22,16 +25,27 @@ export default {
 					}
 				})
 			})
+			this.$http.get('api/seller').then(res => {
+				res.json().then(res => {
+					if (res.errno === 0) {
+						this.seller = res.data
+					}
+				})
+			})
 		})
 	},
 	methods: {
+		test () {
+			console.log('add')
+		},
 		_initScroll () {
 			/* eslint no-unused-vars: 0 */
 			this.menuScroll = new BScroll(this.$refs.menuWrapper, {
 				click: true
 			})
 			this.contentScroll = new BScroll(this.$refs.contentWrapper, {
-				probeType: 3
+				probeType: 3,
+				click: true
 			})
 			this.contentScroll.on('scroll', (pos) => {
 				this.scrollY = Math.abs(Math.floor(pos.y))
@@ -47,7 +61,6 @@ export default {
 			}
 		},
 		menuSelect (index, event) {
-			console.log(index)
 			let foodList = this.$refs.contentWrapper.querySelectorAll('.food-list-hook');
 			let ele = foodList[index];
 			this.contentScroll.scrollToElement(ele, 500)
@@ -55,9 +68,7 @@ export default {
 	},
 	watch: {
 		currentIndex: function (newValue, old) {
-			console.log(newValue, old)
 			let ele = this.$refs.menuWrapper.querySelectorAll('.menu-list-hook')[newValue];
-			console.log(ele)
 			this.menuScroll.scrollToElement(ele, 300);
 		}
 	},
@@ -72,9 +83,22 @@ export default {
 				}
 			}
 			return 0;
+		},
+		selectFoodList () {
+			var foods = [];
+			this.goods.map(item => {
+				item.foods.map(food => {
+					if (food.count) {
+						foods.push(food)
+					}
+				})
+			})
+			return foods;
 		}
 	},
 	components: {
-		'v-support-icon': SupportIcon
+		'v-support-icon': SupportIcon,
+		'v-shopcart': Shopcart,
+		'v-cartcontrol': Cartcontrol
 	}
 }

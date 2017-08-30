@@ -1,11 +1,12 @@
 .goods{
 	position: absolute;
-	bottom: 50px;
+	bottom: 0;
 	left: 0;
 	right: 0;
 	top: 204px;
 	display: flex;
 	overflow: hidden;
+	padding-bottom: 50px;
 	background-color: #f3f5f7;
 	.menu-wrapper{
 		width: 140px;
@@ -59,6 +60,7 @@
 						.info{
 							flex-grow: 1;
 							margin-left: 10px;
+							position: relative;
 							.name{
 								font-size: 14px;
 								color: rgb(7, 18, 27);
@@ -75,6 +77,11 @@
 								line-height: 14px;
 								color: red;
 								font-weight: 700;
+							}
+							.cartcontrol-wrapper{
+								position: absolute;
+								right: 0;
+								bottom: 0;
 							}
 						}
 					}
