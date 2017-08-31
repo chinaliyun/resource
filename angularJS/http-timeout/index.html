@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body ng-controller="mainCtrl">
+	<div>
+		<span>{{test}}</span>
+	</div>
+	<button ng-click="send()">send</button>
+	<button ng-click="end()">end</button>
+	<script src="./angular/angular.js"></script>
+	<script>
+		angular.module('app', [])
+			.controller('mainCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
+				$scope.test = 1;
+
+
+				$scope.send = function () {
+					console.log('send')
+					$http.post('http://192.168.32.202:8077/loginByPass.do', {
+						"userAccount": '管理员1',
+						"loginPassword": '1'
+					}, {
+							headers: {
+								"Content-Type": "text/plain",
+							},
+							timeout: timeout()
+						}).then(function (res) {
+							console.log(res.data);
+						}, function (err) {
+							console.log(err)
+						})
+				}
+				var def;
+				$scope.end = function () {
+					if (def) {
+						def.resolve({code: 111})
+					}
+				}
+				function timeout() {
+					def = $q.defer();
+					return def.promise;
+				}
+
+			}])
+	</script>
+</body>
+
+</html>
