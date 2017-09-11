@@ -35,9 +35,6 @@ export default {
 		})
 	},
 	methods: {
-		test () {
-			console.log('add')
-		},
 		_initScroll () {
 			/* eslint no-unused-vars: 0 */
 			this.menuScroll = new BScroll(this.$refs.menuWrapper, {
@@ -64,6 +61,9 @@ export default {
 			let foodList = this.$refs.contentWrapper.querySelectorAll('.food-list-hook');
 			let ele = foodList[index];
 			this.contentScroll.scrollToElement(ele, 500)
+		},
+		cartAdd (ele) {
+			this.$refs.shopcart.drop(ele);
 		}
 	},
 	watch: {

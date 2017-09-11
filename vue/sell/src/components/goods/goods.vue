@@ -1,8 +1,8 @@
 <template>
-	<div class="goods" >
+	<div class="goods">
 		<div class="menu-wrapper" ref="menuWrapper">
 			<ul>
-				<li v-for="(item, index) in goods" class="menu-list-hook" :class="{'currentIndex': currentIndex===index}" @click="menuSelect(index, $event)">
+				<li v-for="(item, index) in goods" :key="index" class="menu-list-hook" :class="{'currentIndex': currentIndex===index}" @click="menuSelect(index, $event)">
 					<v-support-icon v-show="item.type>0" :type="item.type"></v-support-icon>
 					<span class="name">{{item.name}}</span>
 				</li>
@@ -10,10 +10,10 @@
 		</div>
 		<div class="content-wrapper" ref="contentWrapper">
 			<ul>
-				<li v-for="item in goods" class="food-list-hook">
+				<li v-for="(item, index) in goods" :key="index" class="food-list-hook">
 					<h1>{{item.name}}</h1>
-					<ul>
-						<li v-if="item.foods" v-for="food in item.foods">
+					<ul v-if="item.foods">
+						<li v-for="(food, index) in item.foods" :key="index">
 							<img class="avatar" :src="food.image" alt="">
 							<div class="info">
 								<p class="name">{{food.name}}</p>
@@ -24,7 +24,7 @@
 								</p>
 								<p class="price">￥{{food.price}}</p>
 								<div class="cartcontrol-wrapper">
-									<v-cartcontrol :food="food" @cartAdd="test()"></v-cartcontrol>
+									<v-cartcontrol :food="food" @cartAdd="cartAdd"></v-cartcontrol>
 								</div>
 							</div>
 						</li>
@@ -32,7 +32,7 @@
 				</li>
 			</ul>
 		</div>
-		<v-shopcart :food-list="selectFoodList" :minPrice="seller.minPrice" :peisong="seller.deliveryPrice"></v-shopcart>
+		<v-shopcart ref="shopcart" :food-list="selectFoodList" :minPrice="seller.minPrice" :peisong="seller.deliveryPrice"></v-shopcart>
 	</div>
 </template>
 

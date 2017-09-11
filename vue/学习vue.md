@@ -232,7 +232,7 @@ created () {
 },
 methods: {
     add () {
-        this.$emit('add', {name: 'zhangsan})
+        this.$emit('add', {name: 'zhangsan}, 其他参数)
     }
 }
 ```
@@ -240,7 +240,7 @@ methods: {
 ```
 
 // 父组件 vue
-<custom-component @click="add(data)"></div>
+<custom-component @click="add"></div>
 
 // 父组件 js
 methods: {
@@ -249,15 +249,66 @@ methods: {
     }
 }
 
-
 // 子组件 js
 methods: {
     add () {
         this.$emit('add', {name: 'zhangsan'})  // 派发事件
     }
 }
+```
+注意，当绑定从子组件接收的事件时，v-on的值，只需要写绑定的方法名即可，不需要带括号:
+```
+// 错误：
+<div @add="add()"></div>
+<div @add="add(data)"></div>
+
+// 正确
+<div @add="add"></div>
+```
+
+父组件执行子组件中定义的方法
+-
+父组件中可以通过this.refs.refName访问到子组件，并且访问到子组件中的方法，案例如下： 
+```
+<div id="app>
+    <button @click="click()"></button>
+</div>
+// 父组件
+new Vue({
+    el: '#app',
+    methods: {
+        click () {
+            this.refs.childEl.add()
+        }
+    }
+})
+Vue.component('test-comp', {
+    template: '<p></p>',
+    methods: {
+        add() {
+            console.log('add')
+        }
+    }
+})
+
 
 ```
+
+使用JS设置自定义动画
+-
+vue2.0开始transition的钩子函数，可以直接在transition元素中以v-on的方式绑定，以进入的动画为例：
+从before-enter到enter到after-enter三个步骤，在某些时候，before前面还会添加一个appear周期，暂时先不说apper周期；
+
+before-enter指的是元素即将显示之前，可以用来设置元素的初始样式，与定义类名v-enter的效果相同
+
+enter值得是元素开始显示的时候，可以 用来设置元素最终将要显示的样式，与定义类名v-enter-to的效果相同
+
+after-enter值得是元素显示动画结束的时候，可以用来设置动画结束后元素的样式，
+
+值得注意的是：before-enter事件与enter事件之间的时间间隔是如此之短，眨眼间就从before-enter的样式换成了enter的样式，这是为什么呢？在现在的浏览器中，大家都不约而同的做了一件事情，那就是重绘队列；当浏览器在很短的时间内DOM的位置大小改变了很多次，浏览器不会每一次去重绘页面，而是会把他们放到一个队列中，计算出最终的样式，再一次性完成DOM重绘；
+
+所以当使用JS自定义动画的时候，在enter函数中，我们需要强制浏览器进行一次重绘，强制浏览器进行重绘的方法有很多，最常见的就是获取元素的offset属性。由于计算这个属性，必须确保元素没有未完成的动作，所以或者这些属性的时候，就会引起浏览器强制重绘一次，也就解决了完全没看到before-enter中指定样式的问题
+
 
 
 
