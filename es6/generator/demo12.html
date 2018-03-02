@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function* out(){
+	return 10;
+}
+function* go(){
+	var a = yield* out();
+	console.log(a);
+	return 1
+}
+var foo = go();
+var m = foo.next();
+console.log(m) 
+		</script>
+	</body>
+</html>

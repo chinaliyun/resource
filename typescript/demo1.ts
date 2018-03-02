@@ -1,7 +1,27 @@
-function greeter(person) {
-    return "Hello, " + person;
-}
+// interface Shape {
+//     name: string;
+//     age: number;
+// }
+// function add(shape: Shape) {
+//     return "name is " + shape.name + ",and age is " + shape.age;
+// }
 
-var user = "Jane User";
+// console.log(
+//     add({
+//         name: "zhangsan",
+//         age: 18
+//     })
+// );
 
-document.body.innerHTML = greeter(user);
+// var obj = {
+//     name: "zhangsan",
+//     getName() {
+//         setTimeout(() => {
+//             console.log(this.name);
+//         });
+//     }
+// };
+// var data = {
+//     name: "zhangsan",
+//     age: 15
+// };

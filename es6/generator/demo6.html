@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function* go(){
+		yield 3;
+		}
+		var  foo = go();
+		var m = foo.next();
+		console.log(m)   // {value: 3, done: true}
+		foo.throw('a');
+		console.log('抛出错误后的输出内容')
+		</script>
+	</body>
+</html>

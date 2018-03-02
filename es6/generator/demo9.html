@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function* go(){
+			yield 3;
+			throw new Error('没有捕获事件接收的throw命令抛出的错误');
+			yield 4
+		}
+		var foo = go();
+		var m = foo.next();
+		console.log(m)  // {value: 3, done: false}
+		try{
+			var n = foo.next();
+		}catch(e){
+			console.log(e)
+		}
+		console.log(n)
+		var k = foo.next(3);
+		console.log(k)
+		</script>
+	</body>
+</html>

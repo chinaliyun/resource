@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function* out(){
+	yield 1;
+	yield 2;
+}
+function* go(){
+	yield  out();
+	yield 3;
+}
+var foo = go();
+var m = foo.next();   
+console.log(m)			// {value: 1, done: false}
+var n = foo.next();   
+console.log(n)			// {value: 1, done: false}
+var k = foo.next();   
+console.log(k)			// {value: 1, done: false}
+		</script>
+	</body>
+</html>

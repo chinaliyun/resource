@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function* go(){
+		try{
+		yield 3;
+		}catch(e){
+		console.log(e)
+		}
+		yield 4;
+		}
+		var  foo = go();
+		var m = foo.next();
+		console.log(m)   	// {value: 3, done: false}
+		var n = foo.throw('a');
+		console.log(n)   	// {value: 4, done: false}
+		var k = foo.next();
+		console.log(k);  	// {value: undefined, done: true}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function* go(){
+		yield 1;
+		return 2;
+		yield 3;
+		}
+		var foo = go();
+		foo.next();  // {value: 1, done: false}
+		foo.next();  // {value: 2, done: true}
+		foo.next();  // {value: undefiend, done: true}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <p>firstName: <span data-bind="text: firstName"></span></p>
+    <p>lastName: <span data-bind="text: lastName"></span></p>
+<script type="text/javascript" src="knockout.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        function person(){
+            this.firstName = ko.observable('zhang')
+            this.lastName = ko.observable('san')
+        }
+        ko.applyBindings(new person())
+    }
+</script>
+</body>
+</html>

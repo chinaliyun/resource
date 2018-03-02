@@ -1,92 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-	*{
-		margin: 0;
-		padding: 0;
-	}
-		ul,li{
-			list-style: none;
-		}
-		body{
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-		}
-		.top{
-			text-align: center;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 50px;
-			z-index: 100;
-		}
-		.bottom{
-			position: fixed;
-			top: 50px;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-		.wrapper{
-			width: 200px;
-			height: 50px;
-			border: 1px solid red;
-			position: relative;
-			margin: 0 auto;
-			box-sizing: border-box;
-			display: inline-block;
-		}
-		.list{
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 600px;
-			display: none;
-			padding-top: 50px;
-		}
-		li{
-			text-align: center;
-			background: gray;
-			color: white;
-			height: 50px;
-			line-height: 50px;
-		}
-		li+li{
-			border-top: 1px solid white;
-		}
-	</style>
+	<title></title>
 </head>
 <body>
-	<script type="text/javascript">
-	/*console.log(1)
-		function test() {
-		    console.log(foo);
-		    console.log(bar);
-
-		    var foo = 'Hello';
-		    console.log(foo);
-		    var bar = function () {
-		        return 'world';
-		    }
-
-		    function foo() {
-		        return 'hello';
-		    }
-		}
-
-		test();*/
-
-		function fn() {
-		    console.log('this is test.')
-		}
-		var timer =  setTimeout(fn, 1000);
-		console.log(timer);
-	</script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script type="text/javascript">
+	console.log(axios)
+</script>
 </body>
 </html>

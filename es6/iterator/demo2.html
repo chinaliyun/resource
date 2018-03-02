@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+	.item{
+		float: left;
+		margin: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+	</div>
+<script type="text/javascript">
+	var list = [
+		'http://img2.imgtn.bdimg.com/it/u=3406158708,988531098&fm=27&gp=0.jpg',
+		'http://img1.imgtn.bdimg.com/it/u=36968699,1184021672&fm=27&gp=0.jpg',
+		'http://img1.imgtn.bdimg.com/it/u=3195037202,713746493&fm=27&gp=0.jpg',
+		'http://img3.imgtn.bdimg.com/it/u=3687247260,461458077&fm=27&gp=0.jpg'
+	];
+	var con = document.querySelector('.container');
+	list.forEach(function(item, index){
+		var img = document.createElement('img');
+		img.src = item;
+		img.onload = function(){
+			var div = document.createElement('div');
+			console.log(img.width, img.height, item)
+			div.style.width = img.width+'px';
+			div.style.height = img.height+'px';
+			div.className = 'item'
+			div.style.backgroundImage = `url(${item})`
+			con.appendChild(div)
+		}
+	})
+</script>
+</body>
+</html>

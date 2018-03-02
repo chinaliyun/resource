@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <table>
+    <thead><tr>
+        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+    </tr></thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: seats">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: meal.mealName"></td>
+            <td data-bind="text: meal.price"></td>
+        </tr>
+    </tbody>
+    <tbody></tbody>
+</table>
+<p>name: <input type="text" data-bind="value: name" name=""> </p>
+<button type="button" data-bind="click: add">add</button>
+<button type="button" data-bind="click: remove">remove</button>
+<script type="text/javascript" src="knockout.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        function person(){
+            var _this = this;
+            this.name = ko.observable('');
+            this.seats = ko.observableArray([
+            {
+                name: ko.observable('zhangsan'),
+                meal: {
+                    mealName: 'aa',
+                    price: '0.00'                
+                }
+            },{
+                name: ko.observable('wangwu'),
+                meal: {
+                    mealName: 'bb',
+                    price: '0.00'                
+                }
+            }])
+            this.add = function(){
+                if(_this.name() == ''){
+                    _this.name('must enter value');
+                    setTimeout(function(){
+                        _this.name('')
+                    }, 1000)
+                    return false;
+                }
+                _this.seats.push({
+                    name: _this.name(),
+                    meal: {
+                        mealName: 'bb',
+                        price: '0.00' 
+                    }
+                })
+                _this.name('')
+            }
+            this.remove = function(){
+                var _this = this;
+                _this.seats.splice(0,1)
+            }
+        }
+        var a = new person();
+        ko.applyBindings(a)
+    }
+</script>
+</body>
+</html>
